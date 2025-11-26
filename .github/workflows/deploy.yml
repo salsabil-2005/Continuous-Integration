@@ -23,8 +23,8 @@ jobs:
       run: ./mvnw -DskipTests package
 
     - name: Build Docker image
-      # repository contains a lowercase `dockerfile`; specify it explicitly
-      run: docker build -f dockerfile -t continuous-integration:latest .
+      # use the default Dockerfile (capital D) at repo root
+      run: docker build -t continuous-integration:latest .
 
     - name: Deploy to production
       uses: johnbeynon/render-deploy-action@v0.0.8
